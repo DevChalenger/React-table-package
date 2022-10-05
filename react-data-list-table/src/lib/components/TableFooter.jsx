@@ -6,6 +6,7 @@ const TableFooter = ({
   paginate,
   currentTable,
   rangeTable,
+  currentData,
 }) => {
   const range = (start, end) => {
     return [...Array(end).keys()].map((el) => el + start);
@@ -15,8 +16,10 @@ const TableFooter = ({
 
   return datas.length ? (
     <div className="table-footer">
-      <div>
-        {currentTable} / {datas[datas.length - 1]}
+      <div className="current-entries">
+        Showing {entriesTable * currentTable - entriesTable} to{" "}
+        {currentData.length + entriesTable * currentTable - entriesTable} of{" "}
+        {totalData} datas
       </div>
       <ul>
         {currentTable === 1 ? (

@@ -5,10 +5,32 @@ import { ReactComponent as DownSort } from "../assets/sort-down-solid.svg";
 import { useState } from "react";
 
 const TableHeader = ({ dataTitle, setStateTable, stateTable }) => {
-  const sorting = (column) => {
-    const sortedTable = stateTable.slice().sort();
-    setStateTable(sortedTable);
-    console.log(stateTable);
+  const [sorted, setSorted] = useState({ direction: null, name: null });
+
+  const sortAscending = (column) => {
+    const sortedData = [...stateTable].sort((a, b) =>
+      a[column] < b[column] ? -1 : 1
+    );
+    setStateTable(sortedData);
+  };
+
+  const sortDescending = (column) => {
+    const sortedData = [...stateTable].sort((a, b) =>
+      a[column] < b[column] ? 1 : -1
+    );
+
+    setStateTable(sortedData);
+  };
+
+  let sorting = (column) => {
+    if (sorted.direction === "desc" || sorted.direction === null) {
+      sortAscending(column);
+      setSorted({ direction: "asc", name: column });
+    }
+    if (sorted.direction === "asc") {
+      sortDescending(column);
+      setSorted({ direction: "desc", name: column });
+    }
   };
 
   return (

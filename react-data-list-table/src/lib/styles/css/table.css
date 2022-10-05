@@ -6,6 +6,7 @@
 .table-container .search-and-entries {
   display: flex;
   flex-direction: row;
+  align-items: center;
 }
 .table-container .search-and-entries .table-search {
   display: flex;
@@ -18,12 +19,15 @@
 }
 .table-container .search-and-entries .table-search .input-search {
   padding: 6px 10px;
-  border: 1px solid black;
+  border: 1px solid rgb(190, 190, 190);
   border-radius: 0.25em;
   font-weight: 500;
+  outline: none;
+  transition: 0.3s;
 }
 .table-container .search-and-entries .table-search .input-search:active, .table-container .search-and-entries .table-search .input-search:focus {
-  border: none;
+  border: 1px solid rgb(190, 190, 190);
+  box-shadow: 0px 0px 2px 1px rgb(72, 175, 203);
 }
 .table-container table {
   border: 1px solid rgb(190, 190, 190);
@@ -80,7 +84,6 @@
   padding: 0;
   align-self: flex-end;
   border-radius: 0.25em;
-  overflow: hidden;
   width: auto;
   gap: 5px;
 }
@@ -96,6 +99,9 @@
   cursor: pointer;
   transition: 0.2s;
   color: rgb(72, 175, 203);
+}
+.table-container .table-footer ul li button:hover {
+  box-shadow: 0px 0px 2px 1px rgb(72, 175, 203);
 }
 .table-container .table-footer ul li .current-page {
   color: white;

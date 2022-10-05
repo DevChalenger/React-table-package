@@ -14,6 +14,7 @@ import TableSearch from "./TableSearch";
 //Import PropTypes
 import PropTypes from "prop-types";
 import TableEntries from "./TableEntries";
+import errorHandler from "../utils/error.handler";
 
 const Table = ({
   dataTable,
@@ -26,7 +27,7 @@ const Table = ({
   const [stateTable, setStateTable] = useState([]);
   const [rangeTable, setRangeTable] = useState(2);
   const [currentTable, setCurrentTable] = useState(1);
-  const [entriesTable, setEntriesTable] = useState(12);
+  const [entriesTable, setEntriesTable] = useState(10);
 
   const indexOfLastPage = currentTable * entriesTable;
   const indexOfFirstPage = indexOfLastPage - entriesTable;
@@ -35,7 +36,7 @@ const Table = ({
   const paginate = (pageNumber) => setCurrentTable(pageNumber);
 
   useEffect(() => {
-    /* if (rowsPerTable) {
+    if (rowsPerTable) {
       if (rowsPerTable > 100) {
         console.error(
           "The numeric value per table is too high the value must be lower or equal of 100"
@@ -47,7 +48,7 @@ const Table = ({
       } else {
         setEntriesTable(rowsPerTable);
       }
-    } */
+    }
 
     if (range) {
       if (range > 5) {
@@ -60,9 +61,16 @@ const Table = ({
         setRangeTable(range);
       }
     }
-
+    errorHandler({
+      dataTable,
+      dataTitle,
+      tableTitle,
+      rowsPerTable,
+      range,
+      selectEntries,
+    });
     setStateTable(dataTable);
-  }, [dataTable, rowsPerTable, range]);
+  }, [dataTable, dataTitle, tableTitle, rowsPerTable, range, selectEntries]);
 
   return (
     <div className="table-container">
@@ -93,6 +101,7 @@ const Table = ({
         entriesTable={entriesTable}
         totalData={stateTable.length}
         currentTable={currentTable}
+        currentData={currentData}
         paginate={paginate}
         rangeTable={rangeTable}
       />
