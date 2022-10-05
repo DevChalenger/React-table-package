@@ -19,7 +19,7 @@ const App = () => {
           dataTable={employeeData}
           dataTitle={employeeTitle}
           tableTitle={"Current Employees"}
-          rowsPerTable={12}
+          rowsPerTable={10}
           range={3}
           selectEntries
         />

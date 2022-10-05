@@ -28,6 +28,7 @@ const Table = ({
   const [rangeTable, setRangeTable] = useState(2);
   const [currentTable, setCurrentTable] = useState(1);
   const [entriesTable, setEntriesTable] = useState(10);
+  const [sorted, setSorted] = useState({ direction: null, name: null });
 
   const indexOfLastPage = currentTable * entriesTable;
   const indexOfFirstPage = indexOfLastPage - entriesTable;
@@ -87,6 +88,7 @@ const Table = ({
           dataTitle={dataTitle}
           setStateTable={setStateTable}
           paginate={paginate}
+          setSorted={setSorted}
         />
       </div>
       <table className="table-section">
@@ -94,6 +96,8 @@ const Table = ({
           dataTitle={dataTitle}
           stateTable={stateTable}
           setStateTable={setStateTable}
+          sorted={sorted}
+          setSorted={setSorted}
         />
         <TableBody dataTitle={dataTitle} dataTable={currentData} />
       </table>

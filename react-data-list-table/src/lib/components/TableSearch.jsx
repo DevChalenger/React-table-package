@@ -1,6 +1,12 @@
 import PropTypes from "prop-types";
 
-const TableSearch = ({ stateTable, dataTitle, setStateTable, paginate }) => {
+const TableSearch = ({
+  stateTable,
+  dataTitle,
+  setStateTable,
+  paginate,
+  setSorted,
+}) => {
   const handleChange = (e) => {
     const search = stateTable.filter((state) =>
       dataTitle.some((title) =>
@@ -9,6 +15,7 @@ const TableSearch = ({ stateTable, dataTitle, setStateTable, paginate }) => {
     );
     paginate(1);
     setStateTable(search);
+    setSorted({ direction: null, name: null });
   };
 
   return (

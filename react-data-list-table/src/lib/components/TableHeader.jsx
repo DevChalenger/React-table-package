@@ -2,11 +2,14 @@ import { ReactComponent as InititialSort } from "../assets/sort-solid.svg";
 import PropTypes from "prop-types";
 import { ReactComponent as UpSort } from "../assets/sort-up-solid.svg";
 import { ReactComponent as DownSort } from "../assets/sort-down-solid.svg";
-import { useState } from "react";
 
-const TableHeader = ({ dataTitle, setStateTable, stateTable }) => {
-  const [sorted, setSorted] = useState({ direction: null, name: null });
-
+const TableHeader = ({
+  dataTitle,
+  setStateTable,
+  stateTable,
+  sorted,
+  setSorted,
+}) => {
   const sortAscending = (column) => {
     const sortedData = [...stateTable].sort((a, b) =>
       a[column] < b[column] ? -1 : 1
@@ -23,11 +26,15 @@ const TableHeader = ({ dataTitle, setStateTable, stateTable }) => {
   };
 
   let sorting = (column) => {
-    if (sorted.direction === "desc" || sorted.direction === null) {
+    if (
+      sorted.direction === "desc" ||
+      sorted.direction === null ||
+      sorted.name !== column
+    ) {
       sortAscending(column);
       setSorted({ direction: "asc", name: column });
     }
-    if (sorted.direction === "asc") {
+    if (sorted.direction === "asc" && sorted.name === column) {
       sortDescending(column);
       setSorted({ direction: "desc", name: column });
     }
@@ -47,7 +54,15 @@ const TableHeader = ({ dataTitle, setStateTable, stateTable }) => {
                 className={"table-title-button sort." + valueTitle}
                 onClick={() => sorting(valueTitle)}
               >
-                <InititialSort height={15} />
+                {sorted.name === valueTitle ? (
+                  sorted.direction === "asc" ? (
+                    <UpSort height={15} />
+                  ) : (
+                    <DownSort height={15} />
+                  )
+                ) : (
+                  <InititialSort height={15} />
+                )}
               </button>
             </div>
           </th>
