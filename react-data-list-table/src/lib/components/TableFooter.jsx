@@ -1,16 +1,18 @@
-function TableFooter({
-  dataPerTable,
+import PropTypes from "prop-types";
+
+const TableFooter = ({
+  entriesTable,
   totalData,
   paginate,
   currentTable,
   rangeTable,
-}) {
+}) => {
   const range = (start, end) => {
     return [...Array(end).keys()].map((el) => el + start);
   };
-  const dataCount = Math.ceil(totalData / dataPerTable);
+  const dataCount = Math.ceil(totalData / entriesTable);
   const datas = range(1, dataCount);
-  console.log(datas);
+
   return datas.length ? (
     <div className="table-footer">
       <div>
@@ -82,6 +84,14 @@ function TableFooter({
   ) : (
     ""
   );
-}
+};
+
+TableFooter.propTypes = {
+  entriesTable: PropTypes.number.isRequired,
+  totalData: PropTypes.number.isRequired,
+  currentTable: PropTypes.number.isRequired,
+  rangeTable: PropTypes.number.isRequired,
+  paginate: PropTypes.func.isRequired,
+};
 
 export default TableFooter;

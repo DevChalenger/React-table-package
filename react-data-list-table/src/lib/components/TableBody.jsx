@@ -1,4 +1,6 @@
-function TableBody({ dataTable, dataTitle }) {
+import PropTypes from "prop-types";
+
+const TableBody = ({ dataTable, dataTitle }) => {
   return (
     <tbody className="table-body">
       {dataTable.length !== 0 ? (
@@ -23,6 +25,11 @@ function TableBody({ dataTable, dataTitle }) {
       )}
     </tbody>
   );
-}
+};
+
+TableBody.propTypes = {
+  dataTable: PropTypes.array.isRequired,
+  dataTitle: PropTypes.array.isRequired,
+};
 
 export default TableBody;

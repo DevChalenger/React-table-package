@@ -1,15 +1,12 @@
 import { ReactComponent as InititialSort } from "../assets/sort-solid.svg";
-/* import { ReactComponent as UpSort } from "../assets/sort-up-solid.svg";
+import PropTypes from "prop-types";
+import { ReactComponent as UpSort } from "../assets/sort-up-solid.svg";
 import { ReactComponent as DownSort } from "../assets/sort-down-solid.svg";
-import { useState } from "react"; */
+import { useState } from "react";
 
-function TableHeader({ dataTitle, setStateTable, stateTable }) {
+const TableHeader = ({ dataTitle, setStateTable, stateTable }) => {
   const sorting = (column) => {
-    const sortedTable = stateTable
-      .slice()
-      .sort((a, b) =>
-        a[column] < b[column] ? -1 : a[column] > b[column] ? 1 : 0
-      );
+    const sortedTable = stateTable.slice().sort();
     setStateTable(sortedTable);
     console.log(stateTable);
   };
@@ -36,6 +33,12 @@ function TableHeader({ dataTitle, setStateTable, stateTable }) {
       </tr>
     </thead>
   );
-}
+};
+
+TableHeader.propTypes = {
+  stateTable: PropTypes.array.isRequired,
+  dataTitle: PropTypes.array.isRequired,
+  setStateTable: PropTypes.func.isRequired,
+};
 
 export default TableHeader;

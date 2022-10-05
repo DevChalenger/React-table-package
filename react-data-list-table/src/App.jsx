@@ -20,8 +20,8 @@ const App = () => {
           dataTitle={employeeTitle}
           tableTitle={"Employee"}
           rowsPerTable={8}
-          rowsPerTableSelect={true}
           range={3}
+          selectEntries
         />
       </section>
     </div>

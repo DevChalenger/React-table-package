@@ -2,7 +2,31 @@
   text-align: center;
   margin-top: auto;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  .search-and-entries {
+    display: flex;
+    flex-direction: row;
 
+    .table-search {
+      display: flex;
+
+      flex-direction: row;
+      justify-content: flex-end;
+      align-items: center;
+      gap: 10px;
+      margin: 10px 0px;
+      margin-left: auto;
+      .input-search {
+        padding: 6px 10px;
+        border: 1px solid black;
+        border-radius: 0.25em;
+        font-weight: 500;
+        &:active,
+        &:focus {
+          border: none;
+        }
+      }
+    }
+  }
   table {
     border: 1px solid rgb(190, 190, 190);
     border-radius: 0.2em;

@@ -3,6 +3,28 @@
   margin-top: auto;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
 }
+.table-container .search-and-entries {
+  display: flex;
+  flex-direction: row;
+}
+.table-container .search-and-entries .table-search {
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  align-items: center;
+  gap: 10px;
+  margin: 10px 0px;
+  margin-left: auto;
+}
+.table-container .search-and-entries .table-search .input-search {
+  padding: 6px 10px;
+  border: 1px solid black;
+  border-radius: 0.25em;
+  font-weight: 500;
+}
+.table-container .search-and-entries .table-search .input-search:active, .table-container .search-and-entries .table-search .input-search:focus {
+  border: none;
+}
 .table-container table {
   border: 1px solid rgb(190, 190, 190);
   border-radius: 0.2em;

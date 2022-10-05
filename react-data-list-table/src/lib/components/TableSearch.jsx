@@ -1,4 +1,6 @@
-function TableSearch({ stateTable, dataTitle, setStateTable, paginate }) {
+import PropTypes from "prop-types";
+
+const TableSearch = ({ stateTable, dataTitle, setStateTable, paginate }) => {
   const handleChange = (e) => {
     const search = stateTable.filter((state) =>
       dataTitle.some((title) =>
@@ -10,10 +12,22 @@ function TableSearch({ stateTable, dataTitle, setStateTable, paginate }) {
   };
 
   return (
-    <div>
-      <input type="search" onChange={(e) => handleChange(e)} />
+    <div className="table-search">
+      <span>Search :</span>
+      <input
+        type="text"
+        className="input-search"
+        onChange={(e) => handleChange(e)}
+      />
     </div>
   );
-}
+};
+
+TableSearch.propTypes = {
+  stateTable: PropTypes.array.isRequired,
+  dataTitle: PropTypes.array.isRequired,
+  setStateTable: PropTypes.func.isRequired,
+  paginate: PropTypes.func.isRequired,
+};
 
 export default TableSearch;
