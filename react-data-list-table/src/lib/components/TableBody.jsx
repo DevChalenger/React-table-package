@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-
+import React from "react";
 const TableBody = ({ dataTable, dataTitle }) => {
   return (
     <tbody className="table-body">

@@ -2,7 +2,7 @@ import { ReactComponent as InititialSort } from "../assets/sort-solid.svg";
 import PropTypes from "prop-types";
 import { ReactComponent as UpSort } from "../assets/sort-up-solid.svg";
 import { ReactComponent as DownSort } from "../assets/sort-down-solid.svg";
-
+import React from "react";
 const TableHeader = ({
   dataTitle,
   setStateTable,

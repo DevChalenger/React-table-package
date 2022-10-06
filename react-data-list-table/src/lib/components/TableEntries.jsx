@@ -1,3 +1,4 @@
+import React from "react";
 const TableEntries = ({ setEntriesTable, paginate }) => {
   const options = [
     { value: 10, name: 10 },
