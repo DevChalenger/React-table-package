@@ -41,7 +41,7 @@ const TableHeader = ({
   };
 
   return (
-    <thead className="table-header">
+    <thead className="table-title-header">
       <tr className="table-row">
         {dataTitle.map((valueTitle, keyTitle) => (
           <th key={keyTitle} className="table-title">

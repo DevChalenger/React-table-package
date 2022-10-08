@@ -6,11 +6,10 @@ const App = () => {
 
   const style = {
     borderRadius: "1em",
-    overflow: "hidden",
     minHeight: "100vh",
     display: "flex",
     justifyContent: "center",
-    minWidth: "100%",
+    alignItems: "start",
   };
   return (
     <div style={style}>
@@ -20,7 +19,7 @@ const App = () => {
           dataTitle={employeeTitle}
           tableTitle={"Current Employees"}
           rowsPerTable={10}
-          range={3}
+          rang={3}
           selectEntries
         />
       </section>

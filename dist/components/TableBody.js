@@ -27,7 +27,8 @@ var TableBody = function TableBody(_ref) {
   }) : /*#__PURE__*/_react.default.createElement("tr", {
     className: "table-row"
   }, /*#__PURE__*/_react.default.createElement("td", {
-    className: "table-data table-data-error"
+    className: "table-data table-data-error",
+    colSpan: dataTitle.length
   }, "No data available in table")));
 };
 

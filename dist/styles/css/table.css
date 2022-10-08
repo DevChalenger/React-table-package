@@ -1,23 +1,42 @@
+* {
+  box-sizing: border-box;
+}
+
 .table-container {
   text-align: center;
   margin-top: auto;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+  padding: 10px;
+  width: 1200px;
 }
-.table-container .search-and-entries {
+.table-container .table-header {
   display: flex;
   flex-direction: row;
   align-items: center;
+  justify-content: space-between;
+  background-color: rgb(240, 240, 240);
+  padding: 5px 15px;
+  box-shadow: 0 0 2px 0.1px rgba(0, 0, 0, 0.5);
+  border-radius: 0.5em 0.5em 0 0;
 }
-.table-container .search-and-entries .table-search {
+.table-container .table-header .table-caption {
+  display: block;
+  justify-self: center;
+}
+.table-container .table-header .table-entries {
+  display: flex;
+  flex-direction: row;
+  gap: 5px;
+}
+.table-container .table-header .table-search {
   display: flex;
   flex-direction: row;
   justify-content: flex-end;
   align-items: center;
   gap: 10px;
   margin: 10px 0px;
-  margin-left: auto;
 }
-.table-container .search-and-entries .table-search .input-search {
+.table-container .table-header .table-search .input-search {
   padding: 6px 10px;
   border: 1px solid rgb(190, 190, 190);
   border-radius: 0.25em;
@@ -25,50 +44,62 @@
   outline: none;
   transition: 0.3s;
 }
-.table-container .search-and-entries .table-search .input-search:active, .table-container .search-and-entries .table-search .input-search:focus {
+.table-container .table-header .table-search .input-search:active, .table-container .table-header .table-search .input-search:focus {
   border: 1px solid rgb(190, 190, 190);
   box-shadow: 0px 0px 2px 1px rgb(72, 175, 203);
 }
 .table-container table {
-  border: 1px solid rgb(190, 190, 190);
   border-radius: 0.2em;
   border-collapse: collapse;
+  table-layout: fixed;
+  box-shadow: 0 0 2px 0.1px rgba(0, 0, 0, 0.5);
   border-spacing: 0;
-  overflow: hidden;
-  width: 1200px;
+  width: 100%;
   font-size: 14px;
   text-align: start;
+  border-radius: 0 0 0.5em 0.5em;
 }
-.table-container table .table-header {
+.table-container table th,
+.table-container table td {
+  border-right: 1px solid rgba(0, 0, 0, 0.1);
+  border-left: 1px solid rgba(0, 0, 0, 0.1);
+}
+.table-container table .table-title-header {
   background-color: rgb(125, 200, 221);
   color: white;
 }
-.table-container table .table-header .table-row {
+.table-container table .table-title-header .table-row {
   overflow: auto;
   white-space: pre;
 }
-.table-container table .table-header .table-row .table-title {
-  padding: 12px 10px;
+.table-container table .table-title-header .table-row .table-title {
+  padding: 10px 5px;
+  font-size: 14px;
+  position: sticky;
+  top: 0;
 }
-.table-container table .table-header .table-row .table-title .table-title-container {
+.table-container table .table-title-header .table-row .table-title .table-title-container {
   display: flex;
-  gap: 10px;
+  gap: 5px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.table-container table .table-header .table-row .table-title .table-title-container .table-title-button {
+.table-container table .table-title-header .table-row .table-title .table-title-container .table-title-button {
   border: none;
   display: inline-flex;
   cursor: pointer;
   color: white;
   background-color: inherit;
 }
-.table-container table .table-header .table-row .table-title .table-title-container .table-title-button svg path {
+.table-container table .table-title-header .table-row .table-title .table-title-container .table-title-button svg path {
   fill: white;
 }
 .table-container table .table-body .table-row .table-data {
   padding: 12px 20px;
+}
+.table-container table .table-body .table-row .table-data-error {
+  text-align: center;
 }
 .table-container table .table-body .table-row:nth-child(even) {
   background-color: #f5f5f5;

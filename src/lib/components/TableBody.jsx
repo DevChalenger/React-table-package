@@ -18,7 +18,10 @@ const TableBody = ({ dataTable, dataTitle }) => {
         ))
       ) : (
         <tr className="table-row">
-          <td className={`table-data table-data-error`}>
+          <td
+            className={`table-data table-data-error`}
+            colSpan={dataTitle.length}
+          >
             No data available in table
           </td>
         </tr>

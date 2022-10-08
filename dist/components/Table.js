@@ -109,9 +109,11 @@ var Table = function Table(_ref) {
   }, [dataTable, dataTitle, tableTitle, rowsPerTable, range, selectEntries]);
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "table-container"
-  }, tableTitle ? /*#__PURE__*/_react.default.createElement("h1", null, tableTitle) : "", /*#__PURE__*/_react.default.createElement("div", {
-    className: "search-and-entries"
-  }, selectEntries ? /*#__PURE__*/_react.default.createElement(_TableEntries.default, {
+  }, /*#__PURE__*/_react.default.createElement("div", {
+    className: "table-header"
+  }, tableTitle ? /*#__PURE__*/_react.default.createElement("h1", {
+    className: "table-caption"
+  }, tableTitle) : "", selectEntries ? /*#__PURE__*/_react.default.createElement(_TableEntries.default, {
     setEntriesTable: setEntriesTable,
     paginate: paginate
   }) : "", /*#__PURE__*/_react.default.createElement(_TableSearch.default, {
@@ -120,7 +122,7 @@ var Table = function Table(_ref) {
     setStateTable: setStateTable,
     paginate: paginate,
     setSorted: setSorted
-  })), /*#__PURE__*/_react.default.createElement("table", {
+  })), /*#__PURE__*/_react.default.createElement("div", null, /*#__PURE__*/_react.default.createElement("table", {
     className: "table-section"
   }, /*#__PURE__*/_react.default.createElement(_TableHeader.default, {
     dataTitle: dataTitle,
@@ -131,7 +133,7 @@ var Table = function Table(_ref) {
   }), /*#__PURE__*/_react.default.createElement(_TableBody.default, {
     dataTitle: dataTitle,
     dataTable: currentData
-  })), /*#__PURE__*/_react.default.createElement(_TableFooter.default, {
+  }))), /*#__PURE__*/_react.default.createElement(_TableFooter.default, {
     entriesTable: entriesTable,
     totalData: stateTable.length,
     currentTable: currentTable,

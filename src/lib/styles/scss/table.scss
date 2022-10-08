@@ -1,11 +1,30 @@
+* {
+  box-sizing: border-box;
+}
 .table-container {
   text-align: center;
   margin-top: auto;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  .search-and-entries {
+  padding: 10px;
+  width: 1200px;
+  .table-header {
     display: flex;
     flex-direction: row;
     align-items: center;
+    justify-content: space-between;
+    background-color: rgb(240, 240, 240);
+    padding: 5px 15px;
+    box-shadow: 0 0 2px 0.1px rgba($color: #000000, $alpha: 0.5);
+    border-radius: 0.5em 0.5em 0 0;
+    .table-caption {
+      display: block;
+      justify-self: center;
+    }
+    .table-entries {
+      display: flex;
+      flex-direction: row;
+      gap: 5px;
+    }
     .table-search {
       display: flex;
       flex-direction: row;
@@ -13,7 +32,6 @@
       align-items: center;
       gap: 10px;
       margin: 10px 0px;
-      margin-left: auto;
       .input-search {
         padding: 6px 10px;
         border: 1px solid rgb(190, 190, 190);
@@ -30,25 +48,36 @@
     }
   }
   table {
-    border: 1px solid rgb(190, 190, 190);
     border-radius: 0.2em;
     border-collapse: collapse;
+    table-layout: fixed;
+    box-shadow: 0 0 2px 0.1px rgba($color: #000000, $alpha: 0.5);
     border-spacing: 0;
-    overflow: hidden;
-    width: 1200px;
+    width: 100%;
     font-size: 14px;
     text-align: start;
-    .table-header {
+
+    border-radius: 0 0 0.5em 0.5em;
+    th,
+    td {
+      border-right: 1px solid rgba($color: #000000, $alpha: 0.1);
+      border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
+    }
+    .table-title-header {
       background-color: rgb(125, 200, 221);
       color: white;
+
       .table-row {
         overflow: auto;
         white-space: pre;
         .table-title {
-          padding: 12px 10px;
+          padding: 10px 5px;
+          font-size: 14px;
+          position: sticky;
+          top: 0;
           .table-title-container {
             display: flex;
-            gap: 10px;
+            gap: 5px;
             flex-direction: row;
             justify-content: space-between;
             align-items: center;
@@ -73,6 +102,9 @@
         .table-data {
           padding: 12px 20px;
         }
+        .table-data-error {
+          text-align: center;
+        }
         &:nth-child(even) {
           background-color: #f5f5f5;
         }
@@ -89,7 +121,6 @@
       padding: 0;
       align-self: flex-end;
       border-radius: 0.25em;
-
       width: auto;
       gap: 5px;
       li {

@@ -76,14 +76,14 @@ const Table = ({
 
   return (
     <div className="table-container">
-      {tableTitle ? <h1>{tableTitle}</h1> : ""}
-
-      <div className="search-and-entries">
+      <div className="table-header">
+        {tableTitle ? <h1 className="table-caption">{tableTitle}</h1> : ""}
         {selectEntries ? (
           <TableEntries setEntriesTable={setEntriesTable} paginate={paginate} />
         ) : (
           ""
         )}
+
         <TableSearch
           stateTable={dataTable}
           dataTitle={dataTitle}
@@ -92,16 +92,18 @@ const Table = ({
           setSorted={setSorted}
         />
       </div>
-      <table className="table-section">
-        <TableHeader
-          dataTitle={dataTitle}
-          stateTable={stateTable}
-          setStateTable={setStateTable}
-          sorted={sorted}
-          setSorted={setSorted}
-        />
-        <TableBody dataTitle={dataTitle} dataTable={currentData} />
-      </table>
+      <div>
+        <table className="table-section">
+          <TableHeader
+            dataTitle={dataTitle}
+            stateTable={stateTable}
+            setStateTable={setStateTable}
+            sorted={sorted}
+            setSorted={setSorted}
+          />
+          <TableBody dataTitle={dataTitle} dataTable={currentData} />
+        </table>
+      </div>
       <TableFooter
         entriesTable={entriesTable}
         totalData={stateTable.length}

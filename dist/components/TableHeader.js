@@ -63,7 +63,7 @@ var TableHeader = function TableHeader(_ref) {
   };
 
   return /*#__PURE__*/_react.default.createElement("thead", {
-    className: "table-header"
+    className: "table-title-header"
   }, /*#__PURE__*/_react.default.createElement("tr", {
     className: "table-row"
   }, dataTitle.map(function (valueTitle, keyTitle) {
