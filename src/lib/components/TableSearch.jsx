@@ -20,10 +20,11 @@ const TableSearch = ({
 
   return (
     <div className="table-search">
-      <span>Search :</span>
+      <label htmlFor="input-search">Search :</label>
       <input
         type="text"
         className="input-search"
+        id="input-search"
         onChange={(e) => handleChange(e)}
       />
     </div>
@@ -35,6 +36,7 @@ TableSearch.propTypes = {
   dataTitle: PropTypes.array.isRequired,
   setStateTable: PropTypes.func.isRequired,
   paginate: PropTypes.func.isRequired,
+  setSorted: PropTypes.func,
 };
 
 export default TableSearch;

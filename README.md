@@ -74,11 +74,17 @@ export default render;
   This prop is used for all data of the table
 
 - ##### dataTitle : [Array of String]
+
   This prop is used for the key and the the header of the table ( !Warning : the key must be the same of the key of the data defined in dataTable )
+
 - ##### tableTitle : [String]
-  This prop is used for define the title of the (is not required)
+
+  This prop is used for define the title of the table (is not required)
+
 - ##### rowsPerTable: [Number]
+
   This prop is used to define the rows for each page of the pagination
+
 - ##### range: [Number]
   This prop is used to define the number of each sibling pagination we can see
 - ##### selectEntries : [Boolean]
@@ -91,4 +97,3 @@ export default render;
 - [react](https://www.npmjs.com/package/react)
 - [react-dom](https://www.npmjs.com/package/react-dom)
 - [react-scripts](https://www.npmjs.com/package/react-scripts)
-- [@babel/polyfill](https://www.npmjs.com/package/@babel/polyfill)

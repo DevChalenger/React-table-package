@@ -1,21 +1,23 @@
-//Import React
+// Import React
 import React from "react";
 import { useEffect } from "react";
 import { useState } from "react";
 
-//Import Styles
+// Import Styles
 import "../styles/css/table.css";
 
-//Import Components
+// Import Components
 import TableBody from "./TableBody";
 import TableFooter from "./TableFooter";
 import TableHeader from "./TableHeader";
 import TableSearch from "./TableSearch";
-
-//Import PropTypes
-import PropTypes from "prop-types";
 import TableEntries from "./TableEntries";
-import errorHandler from "../utils/error.handler";
+
+// Import PropTypes
+import PropTypes from "prop-types";
+
+// Import PropHandler
+import PropHandler from "../utils/props.handler";
 
 const Table = ({
   dataTable,
@@ -25,12 +27,14 @@ const Table = ({
   range,
   selectEntries,
 }) => {
+  // State
   const [stateTable, setStateTable] = useState([]);
   const [rangeTable, setRangeTable] = useState(2);
   const [currentTable, setCurrentTable] = useState(1);
   const [entriesTable, setEntriesTable] = useState(10);
   const [sorted, setSorted] = useState({ direction: null, name: null });
 
+  // Pagination
   const indexOfLastPage = currentTable * entriesTable;
   const indexOfFirstPage = indexOfLastPage - entriesTable;
   const currentData = stateTable.slice(indexOfFirstPage, indexOfLastPage);
@@ -63,7 +67,7 @@ const Table = ({
         setRangeTable(range);
       }
     }
-    errorHandler({
+    PropHandler({
       dataTable,
       dataTitle,
       tableTitle,
@@ -92,7 +96,7 @@ const Table = ({
           setSorted={setSorted}
         />
       </div>
-      <div>
+      <div className="table-wrapper">
         <table className="table-section">
           <TableHeader
             dataTitle={dataTitle}
@@ -119,9 +123,10 @@ const Table = ({
 Table.propTypes = {
   dataTable: PropTypes.array.isRequired,
   dataTitle: PropTypes.array.isRequired,
-  tableTitle: PropTypes.string.isRequired,
-  rowsPerTable: PropTypes.number.isRequired,
-  range: PropTypes.number.isRequired,
+  tableTitle: PropTypes.string,
+  rowsPerTable: PropTypes.number,
+  range: PropTypes.number,
+  selectEntries: PropTypes.bool,
 };
 
 export default Table;

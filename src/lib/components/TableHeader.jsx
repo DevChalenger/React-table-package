@@ -1,8 +1,19 @@
-import { ReactComponent as InititialSort } from "../assets/sort-solid.svg";
+import React from "react";
+
 import PropTypes from "prop-types";
+
+import { ReactComponent as InititialSort } from "../assets/sort-solid.svg";
 import { ReactComponent as UpSort } from "../assets/sort-up-solid.svg";
 import { ReactComponent as DownSort } from "../assets/sort-down-solid.svg";
-import React from "react";
+
+import styled from "styled-components";
+
+const StyedTableHeader = styled.thead``;
+
+const StyledTableRow = styled.tr``;
+
+const StyledTableTitle = styled.th``;
+
 const TableHeader = ({
   dataTitle,
   setStateTable,
@@ -41,19 +52,19 @@ const TableHeader = ({
   };
 
   return (
-    <thead className="table-title-header">
-      <tr className="table-row">
+    <StyedTableHeader className="table-title-header">
+      <StyledTableRow className="table-row">
         {dataTitle.map((valueTitle, keyTitle) => (
-          <th key={keyTitle} className="table-title">
-            <div className="table-title-container">
+          <StyledTableTitle key={keyTitle} className="table-title">
+            <div
+              className="table-title-container"
+              onClick={() => sorting(valueTitle)}
+            >
               <span className="table-title-text">
                 {valueTitle.charAt(0).toUpperCase() +
                   valueTitle.slice(1).replace(/([A-Z])/g, " $1")}
               </span>
-              <button
-                className={"table-title-button sort." + valueTitle}
-                onClick={() => sorting(valueTitle)}
-              >
+              <div className={"table-title-button sort." + valueTitle}>
                 {sorted.name === valueTitle ? (
                   sorted.direction === "asc" ? (
                     <UpSort height={15} />
@@ -63,12 +74,12 @@ const TableHeader = ({
                 ) : (
                   <InititialSort height={15} />
                 )}
-              </button>
+              </div>
             </div>
-          </th>
+          </StyledTableTitle>
         ))}
-      </tr>
-    </thead>
+      </StyledTableRow>
+    </StyedTableHeader>
   );
 };
 

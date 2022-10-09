@@ -1,6 +1,13 @@
 import PropTypes from "prop-types";
 import React from "react";
+import { useEffect } from "react";
 const TableBody = ({ dataTable, dataTitle }) => {
+  useEffect(() => {
+    const test = document.querySelector(".table-body");
+    const testStyle = test.style;
+    console.log(testStyle);
+  }, []);
+
   return (
     <tbody className="table-body">
       {dataTable.length !== 0 ? (
@@ -9,9 +16,10 @@ const TableBody = ({ dataTable, dataTitle }) => {
             {dataTitle.map((valueTitle, keyTitle) => (
               <td
                 key={keyTitle}
-                className={`table-data table-data-${valueTitle}`}
+                className={`table-data`}
+                id={`table-data-${valueTitle}`}
               >
-                {valueData[valueTitle]}
+                <span>{valueData[valueTitle]}</span>
               </td>
             ))}
           </tr>
@@ -22,7 +30,7 @@ const TableBody = ({ dataTable, dataTitle }) => {
             className={`table-data table-data-error`}
             colSpan={dataTitle.length}
           >
-            No data available in table
+            <span>No data available in table</span>
           </td>
         </tr>
       )}

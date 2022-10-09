@@ -6,6 +6,7 @@ const TableEntries = ({ setEntriesTable, paginate }) => {
     { value: 50, name: 50 },
     { value: 100, name: 100 },
   ];
+
   const handleChange = (e) => {
     setEntriesTable(parseInt(e.target.value));
     paginate(1);
@@ -15,7 +16,12 @@ const TableEntries = ({ setEntriesTable, paginate }) => {
   return (
     <div className="table-entries">
       <label htmlFor="select-entries">Show</label>
-      <select name="entries" id="select-entries" onChange={handleChange}>
+      <select
+        name="entries"
+        id="select-entries"
+        className="select-entries"
+        onChange={handleChange}
+      >
         {options.map((option) => (
           <option key={option.value} value={option.value}>
             {option.name}
