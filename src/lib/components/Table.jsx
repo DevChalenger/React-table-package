@@ -33,6 +33,7 @@ const Table = ({
   const [currentTable, setCurrentTable] = useState(1);
   const [entriesTable, setEntriesTable] = useState(10);
   const [sorted, setSorted] = useState({ direction: null, name: null });
+  const [theme, setTheme] = useState({ content: null, background: null });
 
   // Pagination
   const indexOfLastPage = currentTable * entriesTable;
@@ -42,40 +43,17 @@ const Table = ({
   const paginate = (pageNumber) => setCurrentTable(pageNumber);
 
   useEffect(() => {
-    if (rowsPerTable) {
-      if (rowsPerTable > 100) {
-        console.error(
-          "The numeric value per table is too high the value must be lower or equal of 100"
-        );
-        setEntriesTable(12);
-      } else if (typeof rowsPerTable !== "number") {
-        console.error("The numeric value per table must be a number");
-        setEntriesTable(12);
-      } else {
-        setEntriesTable(rowsPerTable);
-      }
-    }
-
-    if (range) {
-      if (range > 5) {
-        console.error(
-          "The numeric value of sibling must be lower or equal of 5"
-        );
-      } else if (typeof range !== "number") {
-        console.error("The numeric value of sibling must be a number");
-      } else {
-        setRangeTable(range);
-      }
-    }
-    PropHandler({
-      dataTable,
-      dataTitle,
-      tableTitle,
-      rowsPerTable,
-      range,
-      selectEntries,
-    });
-    setStateTable(dataTable);
+    PropHandler(
+      {
+        dataTable,
+        dataTitle,
+        tableTitle,
+        rowsPerTable,
+        range,
+        selectEntries,
+      },
+      { setStateTable, setEntriesTable, setRangeTable }
+    );
   }, [dataTable, dataTitle, tableTitle, rowsPerTable, range, selectEntries]);
 
   return (

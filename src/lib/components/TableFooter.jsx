@@ -95,6 +95,7 @@ TableFooter.propTypes = {
   currentTable: PropTypes.number.isRequired,
   rangeTable: PropTypes.number.isRequired,
   paginate: PropTypes.func.isRequired,
+  currentData: PropTypes.array.isRequired,
 };
 
 export default TableFooter;

@@ -1,6 +1,6 @@
 {
   "name": "react-data-list-table-component",
-  "version": "0.1.4",
+  "version": "0.1.5",
   "description": "React table component with pagination, search and sorting",
   "private": false,
   "dependencies": {

@@ -87,6 +87,8 @@ TableHeader.propTypes = {
   stateTable: PropTypes.array.isRequired,
   dataTitle: PropTypes.array.isRequired,
   setStateTable: PropTypes.func.isRequired,
+  sorted: PropTypes.object.isRequired,
+  setSorted: PropTypes.func.isRequired,
 };
 
 export default TableHeader;

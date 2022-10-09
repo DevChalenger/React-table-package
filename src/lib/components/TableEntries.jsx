@@ -1,4 +1,6 @@
 import React from "react";
+import PropTypes from "prop-types";
+
 const TableEntries = ({ setEntriesTable, paginate }) => {
   const options = [
     { value: 10, name: 10 },
@@ -31,6 +33,11 @@ const TableEntries = ({ setEntriesTable, paginate }) => {
       <label htmlFor="select-entries">entries</label>
     </div>
   );
+};
+
+TableEntries.propTypes = {
+  setEntriesTable: PropTypes.func.isRequired,
+  paginate: PropTypes.func.isRequired,
 };
 
 export default TableEntries;

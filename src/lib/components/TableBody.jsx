@@ -1,13 +1,7 @@
 import PropTypes from "prop-types";
 import React from "react";
-import { useEffect } from "react";
-const TableBody = ({ dataTable, dataTitle }) => {
-  useEffect(() => {
-    const test = document.querySelector(".table-body");
-    const testStyle = test.style;
-    console.log(testStyle);
-  }, []);
 
+const TableBody = ({ dataTable, dataTitle }) => {
   return (
     <tbody className="table-body">
       {dataTable.length !== 0 ? (

@@ -97,3 +97,4 @@ export default render;
 - [react](https://www.npmjs.com/package/react)
 - [react-dom](https://www.npmjs.com/package/react-dom)
 - [react-scripts](https://www.npmjs.com/package/react-scripts)
+- [styled-components](https://www.npmjs.com/package/styled-components)

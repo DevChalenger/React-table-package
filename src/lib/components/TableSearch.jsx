@@ -36,7 +36,7 @@ TableSearch.propTypes = {
   dataTitle: PropTypes.array.isRequired,
   setStateTable: PropTypes.func.isRequired,
   paginate: PropTypes.func.isRequired,
-  setSorted: PropTypes.func,
+  setSorted: PropTypes.func.isRequired,
 };
 
 export default TableSearch;
