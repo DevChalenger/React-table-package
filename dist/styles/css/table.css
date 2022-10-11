@@ -3,30 +3,29 @@
 }
 
 .table-container {
-  text-align: center;
-  margin-top: auto;
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  padding: 10px;
-  width: 1200px;
+  min-width: 300px;
 }
 .table-container .table-header {
   display: flex;
   flex-direction: row;
+  flex-wrap: wrap;
   align-items: center;
   justify-content: space-between;
-  background-color: rgb(240, 240, 240);
   padding: 5px 15px;
   box-shadow: 0 0 2px 0.1px rgba(0, 0, 0, 0.5);
   border-radius: 0.5em 0.5em 0 0;
-}
-.table-container .table-header .table-caption {
-  display: block;
-  justify-self: center;
 }
 .table-container .table-header .table-entries {
   display: flex;
   flex-direction: row;
   gap: 5px;
+}
+.table-container .table-header .table-entries .select-entries {
+  width: 75px;
+  border-radius: 0.2em;
+  text-align: end;
+  outline: none;
 }
 .table-container .table-header .table-search {
   display: flex;
@@ -48,66 +47,62 @@
   border: 1px solid rgb(190, 190, 190);
   box-shadow: 0px 0px 2px 1px rgb(72, 175, 203);
 }
-.table-container table {
-  border-radius: 0.2em;
+.table-container .table-wrapper {
+  overflow-x: auto;
+  border-radius: 0 0 0.5em 0.5em;
+  box-shadow: 0 0 2px 0.1px rgba(0, 0, 0, 0.5);
+}
+.table-container .table-wrapper .table-section {
   border-collapse: collapse;
   table-layout: fixed;
-  box-shadow: 0 0 2px 0.1px rgba(0, 0, 0, 0.5);
   border-spacing: 0;
-  width: 100%;
   font-size: 14px;
   text-align: start;
-  border-radius: 0 0 0.5em 0.5em;
 }
-.table-container table th,
-.table-container table td {
+.table-container .table-wrapper .table-section th,
+.table-container .table-wrapper .table-section td {
+  white-space: pre;
   border-right: 1px solid rgba(0, 0, 0, 0.1);
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
-.table-container table .table-title-header {
-  background-color: rgb(125, 200, 221);
-  color: white;
+.table-container .table-wrapper .table-section .table-title-header {
+  cursor: pointer;
 }
-.table-container table .table-title-header .table-row {
-  overflow: auto;
-  white-space: pre;
-}
-.table-container table .table-title-header .table-row .table-title {
+.table-container .table-wrapper .table-section .table-title-header .table-row .table-title {
   padding: 10px 5px;
   font-size: 14px;
   position: sticky;
   top: 0;
 }
-.table-container table .table-title-header .table-row .table-title .table-title-container {
+.table-container .table-wrapper .table-section .table-title-header .table-row .table-title .table-title-container {
   display: flex;
   gap: 5px;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
 }
-.table-container table .table-title-header .table-row .table-title .table-title-container .table-title-button {
+.table-container .table-wrapper .table-section .table-title-header .table-row .table-title .table-title-container .table-title-button {
   border: none;
   display: inline-flex;
-  cursor: pointer;
-  color: white;
+  margin: 0 0.5em;
   background-color: inherit;
 }
-.table-container table .table-title-header .table-row .table-title .table-title-container .table-title-button svg path {
-  fill: white;
+.table-container .table-wrapper .table-section .table-body .table-row {
+  transition: 0.3s;
 }
-.table-container table .table-body .table-row .table-data {
+.table-container .table-wrapper .table-section .table-body .table-row .table-data {
   padding: 12px 20px;
 }
-.table-container table .table-body .table-row .table-data-error {
+.table-container .table-wrapper .table-section .table-body .table-row .table-data-error {
   text-align: center;
-}
-.table-container table .table-body .table-row:nth-child(even) {
-  background-color: #f5f5f5;
 }
 .table-container .table-footer {
   display: flex;
   justify-content: space-between;
+  flex-direction: row;
   align-items: center;
+  flex-wrap: wrap;
+  white-space: pre;
 }
 .table-container .table-footer ul {
   list-style: none;
@@ -118,11 +113,8 @@
   width: auto;
   gap: 5px;
 }
-.table-container .table-footer ul li {
-  margin: 0;
-}
 .table-container .table-footer ul li button {
-  background-color: inherit;
+  background-color: white;
   padding: 5px 10px;
   border: none;
   border-radius: 0.25em;
@@ -139,10 +131,21 @@
   background-color: rgb(72, 175, 203);
   cursor: auto;
 }
+.table-container .table-footer ul li .current-page:hover {
+  box-shadow: none;
+}
 .table-container .table-footer ul li .button-inherit {
   background-color: rgb(200, 200, 200);
+  color: rgb(50, 50, 50);
   cursor: not-allowed;
 }
 .table-container .table-footer ul li .button-inherit:hover {
   box-shadow: none;
+}
+
+@media screen and (max-width: 600px) {
+  .table-container .table-footer {
+    flex-direction: column-reverse;
+    align-content: center;
+  }
 }

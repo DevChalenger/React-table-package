@@ -41,6 +41,7 @@ var TableEntries = function TableEntries(_ref) {
   }, "Show"), /*#__PURE__*/_react.default.createElement("select", {
     name: "entries",
     id: "select-entries",
+    className: "select-entries",
     onChange: handleChange
   }, options.map(function (option) {
     return /*#__PURE__*/_react.default.createElement("option", {

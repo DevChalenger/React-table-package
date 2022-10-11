@@ -36,9 +36,12 @@ var TableSearch = function TableSearch(_ref) {
 
   return /*#__PURE__*/_react.default.createElement("div", {
     className: "table-search"
-  }, /*#__PURE__*/_react.default.createElement("span", null, "Search :"), /*#__PURE__*/_react.default.createElement("input", {
+  }, /*#__PURE__*/_react.default.createElement("label", {
+    htmlFor: "input-search"
+  }, "Search :"), /*#__PURE__*/_react.default.createElement("input", {
     type: "text",
     className: "input-search",
+    id: "input-search",
     onChange: function onChange(e) {
       return handleChange(e);
     }
