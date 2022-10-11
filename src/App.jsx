@@ -17,9 +17,10 @@ const App = () => {
         dataTitle={employeeTitle}
         tableTitle={"Current Employees"}
         rowsPerTable={10}
-        background=""
         range={3}
         selectEntries
+        backgroundTheme={"#0x9D2"}
+        contentTheme={"#0x9D2"}
       />
     </section>
   );

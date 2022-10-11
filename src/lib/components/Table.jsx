@@ -16,8 +16,12 @@ import TableEntries from "./TableEntries";
 // Import PropTypes
 import PropTypes from "prop-types";
 
-// Import PropHandler
+// Import StyledComponent
+import { ThemeProvider } from "styled-components";
+
+// Import utils
 import PropHandler from "../utils/props.handler";
+import Theme from "../utils/theme.handler";
 
 const Table = ({
   dataTable,
@@ -26,6 +30,8 @@ const Table = ({
   rowsPerTable,
   range,
   selectEntries,
+  backgroundTheme,
+  contentTheme,
 }) => {
   // State
   const [stateTable, setStateTable] = useState([]);
@@ -33,7 +39,6 @@ const Table = ({
   const [currentTable, setCurrentTable] = useState(1);
   const [entriesTable, setEntriesTable] = useState(10);
   const [sorted, setSorted] = useState({ direction: null, name: null });
-  const [theme, setTheme] = useState({ content: null, background: null });
 
   // Pagination
   const indexOfLastPage = currentTable * entriesTable;
@@ -51,50 +56,67 @@ const Table = ({
         rowsPerTable,
         range,
         selectEntries,
+        backgroundTheme,
+        contentTheme,
       },
       { setStateTable, setEntriesTable, setRangeTable }
     );
-  }, [dataTable, dataTitle, tableTitle, rowsPerTable, range, selectEntries]);
-
+    Theme({ backgroundTheme, contentTheme });
+  }, [
+    dataTable,
+    dataTitle,
+    tableTitle,
+    rowsPerTable,
+    range,
+    selectEntries,
+    backgroundTheme,
+    contentTheme,
+  ]);
+  const { backgroundContent, textContent } = Theme();
   return (
-    <div className="table-container">
-      <div className="table-header">
-        {tableTitle ? <h1 className="table-caption">{tableTitle}</h1> : ""}
-        {selectEntries ? (
-          <TableEntries setEntriesTable={setEntriesTable} paginate={paginate} />
-        ) : (
-          ""
-        )}
+    <ThemeProvider theme={{ backgroundContent, textContent }}>
+      <div className="table-container">
+        <div className="table-header">
+          {tableTitle ? <h1 className="table-caption">{tableTitle}</h1> : ""}
+          {selectEntries ? (
+            <TableEntries
+              setEntriesTable={setEntriesTable}
+              paginate={paginate}
+            />
+          ) : (
+            ""
+          )}
 
-        <TableSearch
-          stateTable={dataTable}
-          dataTitle={dataTitle}
-          setStateTable={setStateTable}
-          paginate={paginate}
-          setSorted={setSorted}
-        />
-      </div>
-      <div className="table-wrapper">
-        <table className="table-section">
-          <TableHeader
+          <TableSearch
+            stateTable={dataTable}
             dataTitle={dataTitle}
-            stateTable={stateTable}
             setStateTable={setStateTable}
-            sorted={sorted}
+            paginate={paginate}
             setSorted={setSorted}
           />
-          <TableBody dataTitle={dataTitle} dataTable={currentData} />
-        </table>
+        </div>
+        <div className="table-wrapper">
+          <table className="table-section">
+            <TableHeader
+              dataTitle={dataTitle}
+              stateTable={stateTable}
+              setStateTable={setStateTable}
+              sorted={sorted}
+              setSorted={setSorted}
+            />
+            <TableBody dataTitle={dataTitle} dataTable={currentData} />
+          </table>
+        </div>
+        <TableFooter
+          entriesTable={entriesTable}
+          totalData={stateTable.length}
+          currentTable={currentTable}
+          currentData={currentData}
+          paginate={paginate}
+          rangeTable={rangeTable}
+        />
       </div>
-      <TableFooter
-        entriesTable={entriesTable}
-        totalData={stateTable.length}
-        currentTable={currentTable}
-        currentData={currentData}
-        paginate={paginate}
-        rangeTable={rangeTable}
-      />
-    </div>
+    </ThemeProvider>
   );
 };
 
@@ -105,6 +127,8 @@ Table.propTypes = {
   rowsPerTable: PropTypes.number,
   range: PropTypes.number,
   selectEntries: PropTypes.bool,
+  backgroundTheme: PropTypes.string,
+  contentTheme: PropTypes.string,
 };
 
 export default Table;

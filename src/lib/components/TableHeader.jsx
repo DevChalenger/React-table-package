@@ -8,7 +8,11 @@ import { ReactComponent as DownSort } from "../assets/sort-down-solid.svg";
 
 import styled from "styled-components";
 
-const StyedTableHeader = styled.thead``;
+import Theme from "../utils/theme.handler";
+
+const StyedTableHeader = styled.thead`
+  background-color: ${({ theme }) => theme.backgroundContent};
+`;
 
 const StyledTableRow = styled.tr``;
 
