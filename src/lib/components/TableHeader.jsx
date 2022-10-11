@@ -8,15 +8,17 @@ import { ReactComponent as DownSort } from "../assets/sort-down-solid.svg";
 
 import styled from "styled-components";
 
-import Theme from "../utils/theme.handler";
-
 const StyedTableHeader = styled.thead`
-  background-color: ${({ theme }) => theme.backgroundContent};
+  ${({ theme }) => `
+    background-color:${theme.backgroundSecondary};
+    color:${theme.contentSecondary};
+    svg {
+      path {
+        fill: ${theme.contentSecondary};
+      }
+    }
+  `};
 `;
-
-const StyledTableRow = styled.tr``;
-
-const StyledTableTitle = styled.th``;
 
 const TableHeader = ({
   dataTitle,
@@ -57,9 +59,9 @@ const TableHeader = ({
 
   return (
     <StyedTableHeader className="table-title-header">
-      <StyledTableRow className="table-row">
+      <tr className="table-row">
         {dataTitle.map((valueTitle, keyTitle) => (
-          <StyledTableTitle key={keyTitle} className="table-title">
+          <th key={keyTitle} className="table-title">
             <div
               className="table-title-container"
               onClick={() => sorting(valueTitle)}
@@ -80,9 +82,9 @@ const TableHeader = ({
                 )}
               </div>
             </div>
-          </StyledTableTitle>
+          </th>
         ))}
-      </StyledTableRow>
+      </tr>
     </StyedTableHeader>
   );
 };

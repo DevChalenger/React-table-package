@@ -5,8 +5,6 @@
 .table-container {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   min-width: 300px;
-  background-color: #fafafa;
-  color: black;
 }
 .table-container .table-header {
   display: flex;
@@ -68,7 +66,6 @@
   border-left: 1px solid rgba(0, 0, 0, 0.1);
 }
 .table-container .table-wrapper .table-section .table-title-header {
-  color: white;
   cursor: pointer;
 }
 .table-container .table-wrapper .table-section .table-title-header .table-row .table-title {
@@ -88,11 +85,7 @@
   border: none;
   display: inline-flex;
   margin: 0 0.5em;
-  color: white;
   background-color: inherit;
-}
-.table-container .table-wrapper .table-section .table-title-header .table-row .table-title .table-title-container .table-title-button svg path {
-  fill: white;
 }
 .table-container .table-wrapper .table-section .table-body .table-row {
   transition: 0.3s;
@@ -102,17 +95,6 @@
 }
 .table-container .table-wrapper .table-section .table-body .table-row .table-data-error {
   text-align: center;
-}
-.table-container .table-wrapper .table-section .table-body .table-row:hover {
-  background-color: rgb(161, 210, 223);
-  color: white;
-}
-.table-container .table-wrapper .table-section .table-body .table-row:nth-child(even) {
-  background-color: #dfdfdf;
-}
-.table-container .table-wrapper .table-section .table-body .table-row:nth-child(even):hover {
-  color: white;
-  background-color: rgb(161, 210, 223);
 }
 .table-container .table-footer {
   display: flex;
@@ -154,6 +136,7 @@
 }
 .table-container .table-footer ul li .button-inherit {
   background-color: rgb(200, 200, 200);
+  color: rgb(50, 50, 50);
   cursor: not-allowed;
 }
 .table-container .table-footer ul li .button-inherit:hover {

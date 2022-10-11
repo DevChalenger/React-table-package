@@ -1,12 +1,22 @@
 import PropTypes from "prop-types";
 import React from "react";
+import styled from "styled-components";
+
+const StyledTableRow = styled.tr`
+  ${({ theme }) => `
+    &:hover{
+      background-color:${theme.backgroundSecondary};
+      color:${theme.contentSecondary}
+    }
+`};
+`;
 
 const TableBody = ({ dataTable, dataTitle }) => {
   return (
     <tbody className="table-body">
       {dataTable.length !== 0 ? (
         dataTable.map((valueData, keyData) => (
-          <tr key={keyData} className="table-row">
+          <StyledTableRow key={keyData} className="table-row">
             {dataTitle.map((valueTitle, keyTitle) => (
               <td
                 key={keyTitle}
@@ -16,17 +26,17 @@ const TableBody = ({ dataTable, dataTitle }) => {
                 <span>{valueData[valueTitle]}</span>
               </td>
             ))}
-          </tr>
+          </StyledTableRow>
         ))
       ) : (
-        <tr className="table-row">
+        <StyledTableRow className="table-row">
           <td
             className={`table-data table-data-error`}
             colSpan={dataTitle.length}
           >
             <span>No data available in table</span>
           </td>
-        </tr>
+        </StyledTableRow>
       )}
     </tbody>
   );

@@ -17,11 +17,18 @@ import TableEntries from "./TableEntries";
 import PropTypes from "prop-types";
 
 // Import StyledComponent
-import { ThemeProvider } from "styled-components";
+import styled, { ThemeProvider } from "styled-components";
 
 // Import utils
 import PropHandler from "../utils/props.handler";
 import Theme from "../utils/theme.handler";
+
+const TableContainer = styled.div`
+  ${({ theme }) => `
+    background-color:${theme.backgroundPrimary};
+    color:${theme.contentPrimary};
+`};
+`;
 
 const Table = ({
   dataTable,
@@ -30,8 +37,10 @@ const Table = ({
   rowsPerTable,
   range,
   selectEntries,
-  backgroundTheme,
-  contentTheme,
+  backgroundThemePrimary,
+  contentThemePrimary,
+  backgroundThemeSecondary,
+  contentThemeSecondary,
 }) => {
   // State
   const [stateTable, setStateTable] = useState([]);
@@ -56,12 +65,17 @@ const Table = ({
         rowsPerTable,
         range,
         selectEntries,
-        backgroundTheme,
-        contentTheme,
+        backgroundThemeSecondary,
+        contentThemeSecondary,
       },
       { setStateTable, setEntriesTable, setRangeTable }
     );
-    Theme({ backgroundTheme, contentTheme });
+    Theme({
+      backgroundThemePrimary,
+      contentThemePrimary,
+      backgroundThemeSecondary,
+      contentThemeSecondary,
+    });
   }, [
     dataTable,
     dataTitle,
@@ -69,13 +83,28 @@ const Table = ({
     rowsPerTable,
     range,
     selectEntries,
-    backgroundTheme,
-    contentTheme,
+    backgroundThemeSecondary,
+    contentThemeSecondary,
+    backgroundThemePrimary,
+    contentThemePrimary,
   ]);
-  const { backgroundContent, textContent } = Theme();
+  const {
+    backgroundPrimary,
+    contentPrimary,
+    backgroundSecondary,
+    contentSecondary,
+  } = Theme();
+
   return (
-    <ThemeProvider theme={{ backgroundContent, textContent }}>
-      <div className="table-container">
+    <ThemeProvider
+      theme={{
+        backgroundPrimary,
+        contentPrimary,
+        backgroundSecondary,
+        contentSecondary,
+      }}
+    >
+      <TableContainer className="table-container">
         <div className="table-header">
           {tableTitle ? <h1 className="table-caption">{tableTitle}</h1> : ""}
           {selectEntries ? (
@@ -115,7 +144,7 @@ const Table = ({
           paginate={paginate}
           rangeTable={rangeTable}
         />
-      </div>
+      </TableContainer>
     </ThemeProvider>
   );
 };
@@ -127,8 +156,10 @@ Table.propTypes = {
   rowsPerTable: PropTypes.number,
   range: PropTypes.number,
   selectEntries: PropTypes.bool,
-  backgroundTheme: PropTypes.string,
-  contentTheme: PropTypes.string,
+  backgroundThemePrimary: PropTypes.string,
+  contentThemePrimary: PropTypes.string,
+  backgroundThemeSecondary: PropTypes.string,
+  contentThemeSecondary: PropTypes.string,
 };
 
 export default Table;

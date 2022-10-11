@@ -19,8 +19,8 @@ const App = () => {
         rowsPerTable={10}
         range={3}
         selectEntries
-        backgroundTheme={"#0x9D2"}
-        contentTheme={"#0x9D2"}
+        backgroundThemeSecondary={"#0x9D2"}
+        contentThemeSecondary={"#0x9D2"}
       />
     </section>
   );

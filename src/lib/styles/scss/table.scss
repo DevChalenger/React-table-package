@@ -4,8 +4,6 @@
 .table-container {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
   min-width: 300px;
-  background-color: #fafafa;
-  color: black;
   .table-header {
     display: flex;
     flex-direction: row;
@@ -52,14 +50,12 @@
     overflow-x: auto;
     border-radius: 0 0 0.5em 0.5em;
     box-shadow: 0 0 2px 0.1px rgba($color: #000000, $alpha: 0.5);
-
     .table-section {
       border-collapse: collapse;
       table-layout: fixed;
       border-spacing: 0;
       font-size: 14px;
       text-align: start;
-
       th,
       td {
         white-space: pre;
@@ -67,7 +63,6 @@
         border-left: 1px solid rgba($color: #000000, $alpha: 0.1);
       }
       .table-title-header {
-        color: white;
         cursor: pointer;
         .table-row {
           .table-title {
@@ -85,13 +80,7 @@
                 border: none;
                 display: inline-flex;
                 margin: 0 0.5em;
-                color: white;
                 background-color: inherit;
-                svg {
-                  path {
-                    fill: white;
-                  }
-                }
               }
             }
           }
@@ -105,18 +94,6 @@
           }
           .table-data-error {
             text-align: center;
-          }
-          &:hover {
-            background-color: rgb(161, 210, 223);
-            color: white;
-          }
-          &:nth-child(even) {
-            background-color: #dfdfdf;
-
-            &:hover {
-              color: white;
-              background-color: rgb(161, 210, 223);
-            }
           }
         }
       }
@@ -161,6 +138,7 @@
         }
         .button-inherit {
           background-color: rgb(200, 200, 200);
+          color: rgb(50, 50, 50);
           cursor: not-allowed;
           &:hover {
             box-shadow: none;
