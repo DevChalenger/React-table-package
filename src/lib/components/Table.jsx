@@ -57,17 +57,7 @@ const Table = ({
   const [currentTable, setCurrentTable] = useState(1);
   const [entriesTable, setEntriesTable] = useState(10);
   const [sorted, setSorted] = useState({ direction: null, name: null });
-  const [theme, setTheme] = useState({
-    backgroundPrimary: backgroundThemePrimary
-      ? backgroundThemePrimary
-      : "#fafafa",
-    contentPrimary: contentThemePrimary ? contentThemePrimary : "black",
-
-    backgroundSecondary: backgroundThemeSecondary
-      ? backgroundThemeSecondary
-      : "#7dc8dd",
-    contentSecondary: contentThemeSecondary ? contentThemeSecondary : "white",
-  });
+  const [theme, setTheme] = useState({});
 
   // Pagination
   const indexOfLastPage = currentTable * entriesTable;
@@ -90,7 +80,7 @@ const Table = ({
         backgroundThemeSecondary,
         contentThemeSecondary,
       },
-      { setStateTable, setEntriesTable, setRangeTable }
+      { setStateTable, setEntriesTable, setRangeTable, setTheme }
     );
   }, [
     dataTable,

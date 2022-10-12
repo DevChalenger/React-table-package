@@ -1,9 +1,11 @@
 import { Table } from "./lib";
 import data from "./data/MOCK_DATA.json";
+import { useState } from "react";
 const App = () => {
   const employeeData = data;
   const employeeTitle = Object.keys(employeeData[0]);
-
+  const [themeTest, setThemeTest] = useState("light");
+  console.log(themeTest);
   const style = {
     minHeight: "100vh",
     display: "flex",
@@ -21,11 +23,18 @@ const App = () => {
         rowsPerTable={10}
         range={5}
         selectEntries
-        backgroundThemePrimary={"#2b2b2b"}
+        backgroundThemePrimary={themeTest === "light" ? "d4d4d4" : "#2b2b2b"}
         contentThemePrimary={"#d4d4d4"}
         backgroundThemeSecondary={"#d4d4d4"}
         contentThemeSecondary={"#2b2b2b"}
       />
+      <button
+        onClick={() =>
+          themeTest === "light" ? setThemeTest("dark") : setThemeTest("light")
+        }
+      >
+        button
+      </button>
     </section>
   );
 };

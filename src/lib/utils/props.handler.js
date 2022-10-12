@@ -11,7 +11,7 @@ const propsHandler = (
     backgroundThemeSecondary,
     contentThemeSecondary,
   },
-  { setStateTable, setEntriesTable, setRangeTable }
+  { setStateTable, setEntriesTable, setRangeTable, setTheme }
 ) => {
   const errorMessage = "Error: Failed Invalid prop type:";
 
@@ -21,7 +21,7 @@ const propsHandler = (
       setStateTable(dataTable);
     }
   }
-  console.log(backgroundThemePrimary);
+
   // rowsPerTable prop
   if (rowsPerTable) {
     if (rowsPerTable >= 100) {
@@ -41,6 +41,17 @@ const propsHandler = (
       setRangeTable(range);
     }
   }
+  setTheme({
+    backgroundPrimary: backgroundThemePrimary
+      ? backgroundThemePrimary
+      : "#fafafa",
+    contentPrimary: contentThemePrimary ? contentThemePrimary : "black",
+
+    backgroundSecondary: backgroundThemeSecondary
+      ? backgroundThemeSecondary
+      : "#7dc8dd",
+    contentSecondary: contentThemeSecondary ? contentThemeSecondary : "white",
+  });
 };
 
 export default propsHandler;

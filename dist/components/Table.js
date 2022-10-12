@@ -86,12 +86,7 @@ var Table = function Table(_ref3) {
       sorted = _useState10[0],
       setSorted = _useState10[1];
 
-  var _useState11 = (0, _react.useState)({
-    backgroundPrimary: backgroundThemePrimary ? backgroundThemePrimary : "#fafafa",
-    contentPrimary: contentThemePrimary ? contentThemePrimary : "black",
-    backgroundSecondary: backgroundThemeSecondary ? backgroundThemeSecondary : "#7dc8dd",
-    contentSecondary: contentThemeSecondary ? contentThemeSecondary : "white"
-  }),
+  var _useState11 = (0, _react.useState)({}),
       _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
       theme = _useState12[0],
       setTheme = _useState12[1]; // Pagination
@@ -120,7 +115,8 @@ var Table = function Table(_ref3) {
     }, {
       setStateTable: setStateTable,
       setEntriesTable: setEntriesTable,
-      setRangeTable: setRangeTable
+      setRangeTable: setRangeTable,
+      setTheme: setTheme
     });
   }, [dataTable, dataTitle, tableTitle, rowsPerTable, range, selectEntries, backgroundThemeSecondary, contentThemeSecondary, backgroundThemePrimary, contentThemePrimary]);
   var backgroundPrimary = theme.backgroundPrimary,
