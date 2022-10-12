@@ -4,7 +4,23 @@ import React from "react";
 // Import StyledComponent
 import styled from "styled-components";
 
-const StyledFooterList = styled.li``;
+const StyledFooterList = styled.li`
+  ${({ theme }) => `
+    color: ${theme.contentPrimary};
+    background-color:${theme.backgroundPrimary};
+  `};
+  & .current-page {
+    ${({ theme }) => `
+      color: ${theme.contentSecondary} !important;
+      background-color:${theme.backgroundSecondary} !important;
+  `};
+  }
+`;
+
+const StyledFooterCurrentEntries = styled.div`
+  ${({ theme }) => `
+    color: ${theme.contentSecondary};`}
+`;
 
 const TableFooter = ({
   entriesTable,
@@ -22,30 +38,32 @@ const TableFooter = ({
 
   return datas.length ? (
     <div className="table-footer">
-      <div className="current-entries">
-        Showing {entriesTable * currentTable - entriesTable} to{" "}
-        {currentData.length + entriesTable * currentTable - entriesTable} of{" "}
-        {totalData} datas
-      </div>
+      <StyledFooterCurrentEntries className="current-entries">
+        <span>
+          Showing {entriesTable * currentTable - entriesTable} to{" "}
+          {currentData.length + entriesTable * currentTable - entriesTable} of{" "}
+          {totalData} datas
+        </span>
+      </StyledFooterCurrentEntries>
       <ul>
         {currentTable === 1 ? (
-          <li>
+          <StyledFooterList>
             <button className="button-inherit">Start</button>
-          </li>
+          </StyledFooterList>
         ) : (
-          <li>
+          <StyledFooterList>
             <button onClick={() => paginate(1)}>Start</button>
-          </li>
+          </StyledFooterList>
         )}
 
         {currentTable === 1 ? (
-          <li>
+          <StyledFooterList>
             <button className="button-inherit">Previous</button>
-          </li>
+          </StyledFooterList>
         ) : (
-          <li>
+          <StyledFooterList>
             <button onClick={() => paginate(currentTable - 1)}>Previous</button>
-          </li>
+          </StyledFooterList>
         )}
         {currentTable - rangeTable >= 1 ? <li>...</li> : ""}
         {datas.map((data) =>
@@ -69,24 +87,24 @@ const TableFooter = ({
           ""
         )}
         {currentTable === datas[datas.length - 1] ? (
-          <li>
+          <StyledFooterList>
             <button className="button-inherit">Next</button>
-          </li>
+          </StyledFooterList>
         ) : (
-          <li>
+          <StyledFooterList>
             <button onClick={() => paginate(currentTable + 1)}>Next</button>
-          </li>
+          </StyledFooterList>
         )}
         {currentTable === datas[datas.length - 1] ? (
-          <li>
+          <StyledFooterList>
             <button className="button-inherit">End</button>
-          </li>
+          </StyledFooterList>
         ) : (
-          <li>
+          <StyledFooterList>
             <button onClick={() => paginate(datas[datas.length - 1])}>
               End
             </button>
-          </li>
+          </StyledFooterList>
         )}
       </ul>
     </div>

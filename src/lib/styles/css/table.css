@@ -113,21 +113,23 @@
   width: auto;
   gap: 5px;
 }
+.table-container .table-footer ul li {
+  border-radius: 0.25em;
+  overflow: hidden;
+}
 .table-container .table-footer ul li button {
-  background-color: white;
+  background-color: inherit;
   padding: 5px 10px;
   border: none;
-  border-radius: 0.25em;
   border: 1px solid rgb(200, 200, 200);
   cursor: pointer;
   transition: 0.2s;
+  color: inherit;
 }
 .table-container .table-footer ul li button:hover {
   box-shadow: 0px 0px 2px 1px rgb(72, 175, 203);
 }
 .table-container .table-footer ul li .current-page {
-  color: white;
-  background-color: rgb(72, 175, 203);
   cursor: auto;
 }
 .table-container .table-footer ul li .current-page:hover {
