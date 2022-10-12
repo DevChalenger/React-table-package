@@ -17,7 +17,7 @@ var _templateObject;
 
 var StyledTableRow = _styledComponents.default.tr(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  ", ";\n"])), function (_ref) {
   var theme = _ref.theme;
-  return "\n    &:hover{\n      background-color:".concat(theme.backgroundSecondary, ";\n      color:").concat(theme.contentSecondary, "\n    }\n");
+  return "\n    &:hover{\n      background-color:".concat(theme.backgroundSecondary, ";\n      color:").concat(theme.contentSecondary, "\n    }\n    \n");
 });
 
 var TableBody = function TableBody(_ref2) {

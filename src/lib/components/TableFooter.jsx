@@ -1,5 +1,11 @@
 import PropTypes from "prop-types";
 import React from "react";
+
+// Import StyledComponent
+import styled from "styled-components";
+
+const StyledFooterList = styled.li``;
+
 const TableFooter = ({
   entriesTable,
   totalData,
@@ -45,14 +51,14 @@ const TableFooter = ({
         {datas.map((data) =>
           data > currentTable - rangeTable &&
           data < currentTable + rangeTable ? (
-            <li key={data}>
+            <StyledFooterList key={data}>
               <button
                 onClick={() => (currentTable === data ? "" : paginate(data))}
                 className={currentTable === data ? "current-page" : ""}
               >
                 {data}
               </button>
-            </li>
+            </StyledFooterList>
           ) : (
             ""
           )

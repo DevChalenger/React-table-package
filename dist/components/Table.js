@@ -31,26 +31,31 @@ var _styledComponents = _interopRequireWildcard(require("styled-components"));
 
 var _props = _interopRequireDefault(require("../utils/props.handler"));
 
-var _theme = _interopRequireDefault(require("../utils/theme.handler"));
+var _templateObject, _templateObject2, _templateObject3;
 
-var _templateObject;
+var TableContainer = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)([""])));
 
-var TableContainer = _styledComponents.default.div(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)(["\n  ", ";\n"])), function (_ref) {
+var StyledTableHeader = _styledComponents.default.div(_templateObject2 || (_templateObject2 = (0, _taggedTemplateLiteral2.default)(["\n  ", ";\n"])), function (_ref) {
   var theme = _ref.theme;
+  return "\n    background-color:".concat(theme.backgroundPrimary, ";\n    color:").concat(theme.contentPrimary, ";\n  ");
+});
+
+var StyledTableSection = _styledComponents.default.table(_templateObject3 || (_templateObject3 = (0, _taggedTemplateLiteral2.default)(["\n  ", ";\n"])), function (_ref2) {
+  var theme = _ref2.theme;
   return "\n    background-color:".concat(theme.backgroundPrimary, ";\n    color:").concat(theme.contentPrimary, ";\n");
 });
 
-var Table = function Table(_ref2) {
-  var dataTable = _ref2.dataTable,
-      dataTitle = _ref2.dataTitle,
-      tableTitle = _ref2.tableTitle,
-      rowsPerTable = _ref2.rowsPerTable,
-      range = _ref2.range,
-      selectEntries = _ref2.selectEntries,
-      backgroundThemePrimary = _ref2.backgroundThemePrimary,
-      contentThemePrimary = _ref2.contentThemePrimary,
-      backgroundThemeSecondary = _ref2.backgroundThemeSecondary,
-      contentThemeSecondary = _ref2.contentThemeSecondary;
+var Table = function Table(_ref3) {
+  var dataTable = _ref3.dataTable,
+      dataTitle = _ref3.dataTitle,
+      tableTitle = _ref3.tableTitle,
+      rowsPerTable = _ref3.rowsPerTable,
+      range = _ref3.range,
+      selectEntries = _ref3.selectEntries,
+      backgroundThemePrimary = _ref3.backgroundThemePrimary,
+      contentThemePrimary = _ref3.contentThemePrimary,
+      backgroundThemeSecondary = _ref3.backgroundThemeSecondary,
+      contentThemeSecondary = _ref3.contentThemeSecondary;
 
   // State
   var _useState = (0, _react.useState)([]),
@@ -79,7 +84,17 @@ var Table = function Table(_ref2) {
   }),
       _useState10 = (0, _slicedToArray2.default)(_useState9, 2),
       sorted = _useState10[0],
-      setSorted = _useState10[1]; // Pagination
+      setSorted = _useState10[1];
+
+  var _useState11 = (0, _react.useState)({
+    backgroundPrimary: backgroundThemePrimary ? backgroundThemePrimary : "#fafafa",
+    contentPrimary: contentThemePrimary ? contentThemePrimary : "black",
+    backgroundSecondary: backgroundThemeSecondary ? backgroundThemeSecondary : "#7dc8dd",
+    contentSecondary: contentThemeSecondary ? contentThemeSecondary : "white"
+  }),
+      _useState12 = (0, _slicedToArray2.default)(_useState11, 2),
+      theme = _useState12[0],
+      setTheme = _useState12[1]; // Pagination
 
 
   var indexOfLastPage = currentTable * entriesTable;
@@ -98,6 +113,8 @@ var Table = function Table(_ref2) {
       rowsPerTable: rowsPerTable,
       range: range,
       selectEntries: selectEntries,
+      backgroundThemePrimary: backgroundThemePrimary,
+      contentThemePrimary: contentThemePrimary,
       backgroundThemeSecondary: backgroundThemeSecondary,
       contentThemeSecondary: contentThemeSecondary
     }, {
@@ -105,20 +122,11 @@ var Table = function Table(_ref2) {
       setEntriesTable: setEntriesTable,
       setRangeTable: setRangeTable
     });
-    (0, _theme.default)({
-      backgroundThemePrimary: backgroundThemePrimary,
-      contentThemePrimary: contentThemePrimary,
-      backgroundThemeSecondary: backgroundThemeSecondary,
-      contentThemeSecondary: contentThemeSecondary
-    });
   }, [dataTable, dataTitle, tableTitle, rowsPerTable, range, selectEntries, backgroundThemeSecondary, contentThemeSecondary, backgroundThemePrimary, contentThemePrimary]);
-
-  var _Theme = (0, _theme.default)(),
-      backgroundPrimary = _Theme.backgroundPrimary,
-      contentPrimary = _Theme.contentPrimary,
-      backgroundSecondary = _Theme.backgroundSecondary,
-      contentSecondary = _Theme.contentSecondary;
-
+  var backgroundPrimary = theme.backgroundPrimary,
+      contentPrimary = theme.contentPrimary,
+      backgroundSecondary = theme.backgroundSecondary,
+      contentSecondary = theme.contentSecondary;
   return /*#__PURE__*/_react.default.createElement(_styledComponents.ThemeProvider, {
     theme: {
       backgroundPrimary: backgroundPrimary,
@@ -128,7 +136,7 @@ var Table = function Table(_ref2) {
     }
   }, /*#__PURE__*/_react.default.createElement(TableContainer, {
     className: "table-container"
-  }, /*#__PURE__*/_react.default.createElement("div", {
+  }, /*#__PURE__*/_react.default.createElement(StyledTableHeader, {
     className: "table-header"
   }, tableTitle ? /*#__PURE__*/_react.default.createElement("h1", {
     className: "table-caption"
@@ -143,7 +151,7 @@ var Table = function Table(_ref2) {
     setSorted: setSorted
   })), /*#__PURE__*/_react.default.createElement("div", {
     className: "table-wrapper"
-  }, /*#__PURE__*/_react.default.createElement("table", {
+  }, /*#__PURE__*/_react.default.createElement(StyledTableSection, {
     className: "table-section"
   }, /*#__PURE__*/_react.default.createElement(_TableHeader.default, {
     dataTitle: dataTitle,

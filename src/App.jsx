@@ -9,6 +9,8 @@ const App = () => {
     display: "flex",
     justifyContent: "center",
     alignItems: "start",
+    backgroundColor: "rgb(150,150,150)",
+    padding: "10px",
   };
   return (
     <section style={style}>
@@ -17,10 +19,12 @@ const App = () => {
         dataTitle={employeeTitle}
         tableTitle={"Current Employees"}
         rowsPerTable={10}
-        range={3}
+        range={5}
         selectEntries
-        backgroundThemeSecondary={"#0x9D2"}
-        contentThemeSecondary={"#0x9D2"}
+        backgroundThemePrimary={"#2b2b2b"}
+        contentThemePrimary={"#d4d4d4"}
+        backgroundThemeSecondary={"#d4d4d4"}
+        contentThemeSecondary={"#2b2b2b"}
       />
     </section>
   );

@@ -8,6 +8,7 @@ const StyledTableRow = styled.tr`
       background-color:${theme.backgroundSecondary};
       color:${theme.contentSecondary}
     }
+    
 `};
 `;
 

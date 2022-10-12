@@ -5,13 +5,17 @@ Object.defineProperty(exports, "__esModule", {
 });
 exports.default = void 0;
 
-var errorHandler = function errorHandler(_ref, _ref2) {
+var propsHandler = function propsHandler(_ref, _ref2) {
   var dataTable = _ref.dataTable,
       dataTitle = _ref.dataTitle,
       tableTitle = _ref.tableTitle,
       rowsPerTable = _ref.rowsPerTable,
       range = _ref.range,
-      selectEntries = _ref.selectEntries;
+      selectEntries = _ref.selectEntries,
+      backgroundThemePrimary = _ref.backgroundThemePrimary,
+      contentThemePrimary = _ref.contentThemePrimary,
+      backgroundThemeSecondary = _ref.backgroundThemeSecondary,
+      contentThemeSecondary = _ref.contentThemeSecondary;
   var setStateTable = _ref2.setStateTable,
       setEntriesTable = _ref2.setEntriesTable,
       setRangeTable = _ref2.setRangeTable;
@@ -21,20 +25,9 @@ var errorHandler = function errorHandler(_ref, _ref2) {
     if (Array.isArray(dataTable)) {
       setStateTable(dataTable);
     }
+  }
 
-    return;
-  } // dataTitle prop
-
-
-  if (dataTitle) {
-    return;
-  } // tableTitle prop
-
-
-  if (tableTitle) {
-    return;
-  } // rowsPerTable prop
-
+  console.log(backgroundThemePrimary); // rowsPerTable prop
 
   if (rowsPerTable) {
     if (rowsPerTable >= 100) {
@@ -43,10 +36,7 @@ var errorHandler = function errorHandler(_ref, _ref2) {
     } else {
       setEntriesTable(rowsPerTable);
     }
-
-    return;
-  } // range prop
-
+  }
 
   if (range) {
     if (range > 5) {
@@ -54,10 +44,8 @@ var errorHandler = function errorHandler(_ref, _ref2) {
     } else {
       setRangeTable(range);
     }
-
-    return;
   }
 };
 
-var _default = errorHandler;
+var _default = propsHandler;
 exports.default = _default;

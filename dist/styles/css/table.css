@@ -121,7 +121,6 @@
   border: 1px solid rgb(200, 200, 200);
   cursor: pointer;
   transition: 0.2s;
-  color: rgb(72, 175, 203);
 }
 .table-container .table-footer ul li button:hover {
   box-shadow: 0px 0px 2px 1px rgb(72, 175, 203);

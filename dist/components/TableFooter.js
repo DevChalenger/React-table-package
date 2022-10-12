@@ -11,7 +11,15 @@ require("core-js/modules/web.dom-collections.iterator.js");
 
 var _toConsumableArray2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/toConsumableArray"));
 
+var _taggedTemplateLiteral2 = _interopRequireDefault(require("@babel/runtime/helpers/esm/taggedTemplateLiteral"));
+
 var _react = _interopRequireDefault(require("react"));
+
+var _styledComponents = _interopRequireDefault(require("styled-components"));
+
+var _templateObject;
+
+var StyledFooterList = _styledComponents.default.li(_templateObject || (_templateObject = (0, _taggedTemplateLiteral2.default)([""])));
 
 var TableFooter = function TableFooter(_ref) {
   var entriesTable = _ref.entriesTable,
@@ -46,7 +54,7 @@ var TableFooter = function TableFooter(_ref) {
       return paginate(currentTable - 1);
     }
   }, "Previous")), currentTable - rangeTable >= 1 ? /*#__PURE__*/_react.default.createElement("li", null, "...") : "", datas.map(function (data) {
-    return data > currentTable - rangeTable && data < currentTable + rangeTable ? /*#__PURE__*/_react.default.createElement("li", {
+    return data > currentTable - rangeTable && data < currentTable + rangeTable ? /*#__PURE__*/_react.default.createElement(StyledFooterList, {
       key: data
     }, /*#__PURE__*/_react.default.createElement("button", {
       onClick: function onClick() {

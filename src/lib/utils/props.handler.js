@@ -1,5 +1,16 @@
-const errorHandler = (
-  { dataTable, dataTitle, tableTitle, rowsPerTable, range, selectEntries },
+const propsHandler = (
+  {
+    dataTable,
+    dataTitle,
+    tableTitle,
+    rowsPerTable,
+    range,
+    selectEntries,
+    backgroundThemePrimary,
+    contentThemePrimary,
+    backgroundThemeSecondary,
+    contentThemeSecondary,
+  },
   { setStateTable, setEntriesTable, setRangeTable }
 ) => {
   const errorMessage = "Error: Failed Invalid prop type:";
@@ -9,19 +20,8 @@ const errorHandler = (
     if (Array.isArray(dataTable)) {
       setStateTable(dataTable);
     }
-    return;
   }
-
-  // dataTitle prop
-  if (dataTitle) {
-    return;
-  }
-
-  // tableTitle prop
-  if (tableTitle) {
-    return;
-  }
-
+  console.log(backgroundThemePrimary);
   // rowsPerTable prop
   if (rowsPerTable) {
     if (rowsPerTable >= 100) {
@@ -32,18 +32,15 @@ const errorHandler = (
     } else {
       setEntriesTable(rowsPerTable);
     }
-    return;
   }
 
-  // range prop
   if (range) {
     if (range > 5) {
       console.error(`${errorMessage} "range" value must be a greater than 5`);
     } else {
       setRangeTable(range);
     }
-    return;
   }
 };
 
-export default errorHandler;
+export default propsHandler;

@@ -20,10 +20,18 @@ import PropTypes from "prop-types";
 import styled, { ThemeProvider } from "styled-components";
 
 // Import utils
-import PropHandler from "../utils/props.handler";
-import Theme from "../utils/theme.handler";
+import propsHandler from "../utils/props.handler";
 
-const TableContainer = styled.div`
+const TableContainer = styled.div``;
+
+const StyledTableHeader = styled.div`
+  ${({ theme }) => `
+    background-color:${theme.backgroundPrimary};
+    color:${theme.contentPrimary};
+  `};
+`;
+
+const StyledTableSection = styled.table`
   ${({ theme }) => `
     background-color:${theme.backgroundPrimary};
     color:${theme.contentPrimary};
@@ -43,11 +51,23 @@ const Table = ({
   contentThemeSecondary,
 }) => {
   // State
+
   const [stateTable, setStateTable] = useState([]);
   const [rangeTable, setRangeTable] = useState(2);
   const [currentTable, setCurrentTable] = useState(1);
   const [entriesTable, setEntriesTable] = useState(10);
   const [sorted, setSorted] = useState({ direction: null, name: null });
+  const [theme, setTheme] = useState({
+    backgroundPrimary: backgroundThemePrimary
+      ? backgroundThemePrimary
+      : "#fafafa",
+    contentPrimary: contentThemePrimary ? contentThemePrimary : "black",
+
+    backgroundSecondary: backgroundThemeSecondary
+      ? backgroundThemeSecondary
+      : "#7dc8dd",
+    contentSecondary: contentThemeSecondary ? contentThemeSecondary : "white",
+  });
 
   // Pagination
   const indexOfLastPage = currentTable * entriesTable;
@@ -57,7 +77,7 @@ const Table = ({
   const paginate = (pageNumber) => setCurrentTable(pageNumber);
 
   useEffect(() => {
-    PropHandler(
+    propsHandler(
       {
         dataTable,
         dataTitle,
@@ -65,17 +85,13 @@ const Table = ({
         rowsPerTable,
         range,
         selectEntries,
+        backgroundThemePrimary,
+        contentThemePrimary,
         backgroundThemeSecondary,
         contentThemeSecondary,
       },
       { setStateTable, setEntriesTable, setRangeTable }
     );
-    Theme({
-      backgroundThemePrimary,
-      contentThemePrimary,
-      backgroundThemeSecondary,
-      contentThemeSecondary,
-    });
   }, [
     dataTable,
     dataTitle,
@@ -93,8 +109,7 @@ const Table = ({
     contentPrimary,
     backgroundSecondary,
     contentSecondary,
-  } = Theme();
-
+  } = theme;
   return (
     <ThemeProvider
       theme={{
@@ -105,7 +120,7 @@ const Table = ({
       }}
     >
       <TableContainer className="table-container">
-        <div className="table-header">
+        <StyledTableHeader className="table-header">
           {tableTitle ? <h1 className="table-caption">{tableTitle}</h1> : ""}
           {selectEntries ? (
             <TableEntries
@@ -123,9 +138,9 @@ const Table = ({
             paginate={paginate}
             setSorted={setSorted}
           />
-        </div>
+        </StyledTableHeader>
         <div className="table-wrapper">
-          <table className="table-section">
+          <StyledTableSection className="table-section">
             <TableHeader
               dataTitle={dataTitle}
               stateTable={stateTable}
@@ -134,7 +149,7 @@ const Table = ({
               setSorted={setSorted}
             />
             <TableBody dataTitle={dataTitle} dataTable={currentData} />
-          </table>
+          </StyledTableSection>
         </div>
         <TableFooter
           entriesTable={entriesTable}
