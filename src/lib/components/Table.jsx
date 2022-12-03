@@ -64,7 +64,10 @@ const Table = ({
   const indexOfFirstPage = indexOfLastPage - entriesTable;
   const currentData = stateTable.slice(indexOfFirstPage, indexOfLastPage);
 
-  const paginate = (pageNumber) => setCurrentTable(pageNumber);
+  const paginate = (pageNumber) => {
+    console.log(pageNumber);
+    return setCurrentTable(pageNumber);
+  };
 
   useEffect(() => {
     propsHandler(

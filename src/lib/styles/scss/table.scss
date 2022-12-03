@@ -3,7 +3,7 @@
 }
 .table-container {
   font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
-  min-width: 300px;
+  min-width: 250px;
   .table-header {
     display: flex;
     flex-direction: row;
@@ -109,20 +109,19 @@
     ul {
       list-style: none;
       display: inline-flex;
+      flex-direction: row;
       padding: 0;
       align-self: flex-end;
       border-radius: 0.25em;
       width: auto;
       gap: 5px;
       li {
-        border-radius: 0.25em;
+        border-radius: 1em;
         overflow: hidden;
         button {
           background-color: inherit;
           padding: 5px 10px;
           border: none;
-
-          border: 1px solid rgb(200, 200, 200);
           cursor: pointer;
           transition: 0.2s;
           color: inherit;
@@ -154,6 +153,24 @@
     .table-footer {
       flex-direction: column-reverse;
       align-content: center;
+    }
+  }
+}
+@media screen and (max-width: 425px) {
+  .table-container {
+    .table-footer {
+      ul {
+        li {
+          button {
+            &.start {
+              display: none;
+            }
+            &.end {
+              display: none;
+            }
+          }
+        }
+      }
     }
   }
 }

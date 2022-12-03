@@ -52,19 +52,17 @@ var TableFooter = function TableFooter(_ref4) {
     className: "table-footer"
   }, /*#__PURE__*/_react.default.createElement(StyledFooterCurrentEntries, {
     className: "current-entries"
-  }, /*#__PURE__*/_react.default.createElement("span", null, "Showing ", entriesTable * currentTable - entriesTable, " to", " ", currentData.length + entriesTable * currentTable - entriesTable, " of", " ", totalData, " datas")), /*#__PURE__*/_react.default.createElement("ul", null, currentTable === 1 ? /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    className: "button-inherit"
-  }, "Start")) : /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: function onClick() {
+  }, /*#__PURE__*/_react.default.createElement("span", null, "Showing ", entriesTable * currentTable - entriesTable, " to", " ", currentData.length + entriesTable * currentTable - entriesTable, " of", " ", totalData, " datas")), /*#__PURE__*/_react.default.createElement("ul", null, /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
+    className: "".concat(currentTable === 1 ? "button-inherit" : "", " start"),
+    onClick: currentTable !== 1 ? function () {
       return paginate(1);
-    }
-  }, "Start")), currentTable === 1 ? /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    className: "button-inherit"
-  }, "Previous")) : /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: function onClick() {
+    } : function () {}
+  }, "Start")), /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
+    className: "".concat(currentTable === 1 ? "button-inherit" : "", " previous"),
+    onClick: currentTable !== 1 ? function () {
       return paginate(currentTable - 1);
-    }
-  }, "Previous")), currentTable - rangeTable >= 1 ? /*#__PURE__*/_react.default.createElement("li", null, "...") : "", datas.map(function (data) {
+    } : function () {}
+  }, "Prev")), currentTable - rangeTable >= 1 ? /*#__PURE__*/_react.default.createElement("li", null, "...") : "", datas.map(function (data) {
     return data > currentTable - rangeTable && data < currentTable + rangeTable ? /*#__PURE__*/_react.default.createElement(StyledFooterList, {
       key: data
     }, /*#__PURE__*/_react.default.createElement("button", {
@@ -73,18 +71,16 @@ var TableFooter = function TableFooter(_ref4) {
       },
       className: currentTable === data ? "current-page" : ""
     }, data)) : "";
-  }), currentTable + rangeTable <= datas[datas.length - 1] ? /*#__PURE__*/_react.default.createElement("li", null, "...") : "", currentTable === datas[datas.length - 1] ? /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    className: "button-inherit"
-  }, "Next")) : /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: function onClick() {
+  }), currentTable + rangeTable <= datas[datas.length - 1] ? /*#__PURE__*/_react.default.createElement("li", null, "...") : "", /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
+    className: "".concat(currentTable === datas[datas.length - 1] ? "button-inherit" : "", " next"),
+    onClick: currentTable !== datas[datas.length - 1] ? function () {
       return paginate(currentTable + 1);
-    }
-  }, "Next")), currentTable === datas[datas.length - 1] ? /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    className: "button-inherit"
-  }, "End")) : /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
-    onClick: function onClick() {
+    } : function () {}
+  }, "Next")), /*#__PURE__*/_react.default.createElement(StyledFooterList, null, /*#__PURE__*/_react.default.createElement("button", {
+    className: "".concat(currentTable === datas[datas.length - 1] ? "button-inherit" : "", " end"),
+    onClick: currentTable !== datas[datas.length - 1] ? function () {
       return paginate(datas[datas.length - 1]);
-    }
+    } : function () {}
   }, "End")))) : "";
 };
 

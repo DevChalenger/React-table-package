@@ -46,25 +46,26 @@ const TableFooter = ({
         </span>
       </StyledFooterCurrentEntries>
       <ul>
-        {currentTable === 1 ? (
-          <StyledFooterList>
-            <button className="button-inherit">Start</button>
-          </StyledFooterList>
-        ) : (
-          <StyledFooterList>
-            <button onClick={() => paginate(1)}>Start</button>
-          </StyledFooterList>
-        )}
+        <StyledFooterList>
+          <button
+            className={`${currentTable === 1 ? "button-inherit" : ""} start`}
+            onClick={currentTable !== 1 ? () => paginate(1) : () => {}}
+          >
+            Start
+          </button>
+        </StyledFooterList>
 
-        {currentTable === 1 ? (
-          <StyledFooterList>
-            <button className="button-inherit">Previous</button>
-          </StyledFooterList>
-        ) : (
-          <StyledFooterList>
-            <button onClick={() => paginate(currentTable - 1)}>Previous</button>
-          </StyledFooterList>
-        )}
+        <StyledFooterList>
+          <button
+            className={`${currentTable === 1 ? "button-inherit" : ""} previous`}
+            onClick={
+              currentTable !== 1 ? () => paginate(currentTable - 1) : () => {}
+            }
+          >
+            Prev
+          </button>
+        </StyledFooterList>
+
         {currentTable - rangeTable >= 1 ? <li>...</li> : ""}
         {datas.map((data) =>
           data > currentTable - rangeTable &&
@@ -86,26 +87,36 @@ const TableFooter = ({
         ) : (
           ""
         )}
-        {currentTable === datas[datas.length - 1] ? (
-          <StyledFooterList>
-            <button className="button-inherit">Next</button>
-          </StyledFooterList>
-        ) : (
-          <StyledFooterList>
-            <button onClick={() => paginate(currentTable + 1)}>Next</button>
-          </StyledFooterList>
-        )}
-        {currentTable === datas[datas.length - 1] ? (
-          <StyledFooterList>
-            <button className="button-inherit">End</button>
-          </StyledFooterList>
-        ) : (
-          <StyledFooterList>
-            <button onClick={() => paginate(datas[datas.length - 1])}>
-              End
-            </button>
-          </StyledFooterList>
-        )}
+
+        <StyledFooterList>
+          <button
+            className={`${
+              currentTable === datas[datas.length - 1] ? "button-inherit" : ""
+            } next`}
+            onClick={
+              currentTable !== datas[datas.length - 1]
+                ? () => paginate(currentTable + 1)
+                : () => {}
+            }
+          >
+            Next
+          </button>
+        </StyledFooterList>
+
+        <StyledFooterList>
+          <button
+            className={`${
+              currentTable === datas[datas.length - 1] ? "button-inherit" : ""
+            } end`}
+            onClick={
+              currentTable !== datas[datas.length - 1]
+                ? () => paginate(datas[datas.length - 1])
+                : () => {}
+            }
+          >
+            End
+          </button>
+        </StyledFooterList>
       </ul>
     </div>
   ) : (
