@@ -19,11 +19,7 @@ const TableBody = ({ dataTable, dataTitle }) => {
         dataTable.map((valueData, keyData) => (
           <StyledTableRow key={keyData} className="table-row">
             {dataTitle.map((valueTitle, keyTitle) => (
-              <td
-                key={keyTitle}
-                className={`table-data`}
-                id={`table-data-${valueTitle}`}
-              >
+              <td key={keyTitle} className={`table-data`}>
                 <span>{valueData[valueTitle]}</span>
               </td>
             ))}

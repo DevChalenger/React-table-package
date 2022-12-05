@@ -32,8 +32,7 @@ var TableBody = function TableBody(_ref2) {
     }, dataTitle.map(function (valueTitle, keyTitle) {
       return /*#__PURE__*/_react.default.createElement("td", {
         key: keyTitle,
-        className: "table-data",
-        id: "table-data-".concat(valueTitle)
+        className: "table-data"
       }, /*#__PURE__*/_react.default.createElement("span", null, valueData[valueTitle]));
     }));
   }) : /*#__PURE__*/_react.default.createElement(StyledTableRow, {
