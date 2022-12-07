@@ -54,12 +54,16 @@ const render = () => {
 
   return (
     <Table
-      dataTable={data} // Must be a Array of Objects
-      dataTitle={title} // Must the keys of the first element of the Array
-      tableTitle={"table-caption"} // Must be a string for the title of the Table
-      rowsPerTable={10} // Must be a number of the entries
-      range={3} // Must be a number of the range of the pagination
-      selectEntries // Not requiered but is boolean
+      dataTable={data}
+      dataTitle={title}
+      tableTitle={"table-caption"}
+      rowsPerTable={10}
+      range={3}
+      selectEntries
+      backgroundThemePrimary={"#2b2b2b"}
+      contentThemePrimary={"#d4d4d4"}
+      backgroundThemeSecondary={"#d4d4d4"}
+      contentThemeSecondary={"#2b2b2b"}
     />
   );
 };
@@ -84,6 +88,22 @@ export default render;
 - ##### rowsPerTable: [Number]
 
   This prop is used to define the rows for each page of the pagination
+
+- ##### backgroundThemePrimary: [String]
+
+  This prop is used to define the primary background of the table
+
+- ##### contentThemePrimary: [String]
+
+  This prop is used to define the primary content of the table
+
+- ##### backgroundThemeSecondary: [String]
+
+  This prop is used to define the secondary background of the table
+
+- ##### contentThemeSecondary: [String]
+
+  This prop is used to define the secondary content of the table
 
 - ##### range: [Number]
   This prop is used to define the number of each sibling pagination we can see

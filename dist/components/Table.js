@@ -97,7 +97,6 @@ var Table = function Table(_ref3) {
   var currentData = stateTable.slice(indexOfFirstPage, indexOfLastPage);
 
   var paginate = function paginate(pageNumber) {
-    console.log(pageNumber);
     return setCurrentTable(pageNumber);
   };
 

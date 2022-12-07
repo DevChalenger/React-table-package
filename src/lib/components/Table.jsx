@@ -65,7 +65,6 @@ const Table = ({
   const currentData = stateTable.slice(indexOfFirstPage, indexOfLastPage);
 
   const paginate = (pageNumber) => {
-    console.log(pageNumber);
     return setCurrentTable(pageNumber);
   };
 

@@ -12,7 +12,6 @@ const TableEntries = ({ setEntriesTable, paginate }) => {
   const handleChange = (e) => {
     setEntriesTable(parseInt(e.target.value));
     paginate(1);
-    console.log(e.target.value);
   };
 
   return (

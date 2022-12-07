@@ -31,7 +31,6 @@ var TableEntries = function TableEntries(_ref) {
   var handleChange = function handleChange(e) {
     setEntriesTable(parseInt(e.target.value));
     paginate(1);
-    console.log(e.target.value);
   };
 
   return /*#__PURE__*/_react.default.createElement("div", {
